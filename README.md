@@ -14,14 +14,19 @@ The most used commands I find myself using everyday with docker
 5. `docker image ls`
 
 # Checking state of Containers and images
-### check running containers (Can have use many images)
-`sudo docker ps`
-### check running images (Can be contained in many containers)
+### check running images (used to create containers)
 `sudo docker images`
+### check running containers (An instance of an image)
+`sudo docker ps`
 ### Detailed docker info
 `sudo docker info`
-### Check all running containers
+### Check all running containers  
 `sudo docker container ls -a`
+
+### Whats going on in Containers
+`docker container top`
+`docker container inspect`
+`docker container stats`
 
 # Modifiyig state of docker containers
 
@@ -38,6 +43,30 @@ in which case i pass the 3 mandatory parameters(called environment variables) wi
 ### Removing the Containers
 `sudo docket container rm `
 
-
 # Getting and using downloaded images
 `sudo docker pull mcr.microsoft.com/mssql/server`
+
+
+## Getting inside a container with a shell(SSH Like) Inside of Containers
+### start new container intereactively
+`docker container run -it nameofcontainer bash`
+### run additional command in existing container
+`docker container exec -it nameofcontainer bash`  
+
+## Publishing Rules
+--publish is always in the format HOST:CONTAINER
+
+
+
+# Connecting multiple dockers containers (Automatic DNS Resolution between containers)
+
+## Network commands
+ 1. `docker network ls`  // Show network
+ 2. `docker network inspect` //Inspect a network
+ 3. `docker network create drivename` //  Create a network
+ 4. `docker network connect` // Attach a network to container
+ 5. `docker network disconnect ` // Detatch a network from container
+  
+One way to connect containers and allow network comunnication with them is that you create a them in the same "virtual network" by creating them in the same network instead of the default "bridge" driver, example:
+`docker container run -d --name my_nginx --network my_app_net nginx`
+1. If you don't specify the virtual network name it will default to the container's name, and then you will have to manually link the containers using the `--link` list commands
