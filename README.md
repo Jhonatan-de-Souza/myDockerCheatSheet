@@ -2,16 +2,16 @@
 The most used commands I find myself using everyday with docker
 
 ### Initial Setup, Check Version, also doubles as a check if docker is installed correctly
-1. sudo docker version
-2. sudo groupadd docker
-3. sudo usermod -aG docker $fuktik
+1. `sudo docker version`
+2. `sudo groupadd docker`
+3. `sudo usermod -aG docker $fuktik`
 
 ### Basic download and go set up
-1. docker container run -d --name nameofcontainer -p 80:80 nameofimagetodownloadoruse
-2. docker ps -a
-3. docker container stop nameofcontainer
-4. docker container rm nameofcontainer
-5. docker image ls
+1. `docker container run -d --name nameofcontainer -p 80:80 nameofimagetodownloadoruse`
+2. `docker ps -a`
+3. `docker container stop nameofcontainer`
+4. `docker container rm nameofcontainer`
+5. `docker image ls`
 
 # Checking state of Containers and images
 ### check running containers (Can have use many images)
@@ -40,4 +40,4 @@ in which case i pass the 3 mandatory parameters(called environment variables) wi
 
 
 # Getting and using downloaded images
-sudo docker pull mcr.microsoft.com/mssql/server
+`sudo docker pull mcr.microsoft.com/mssql/server`
