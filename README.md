@@ -1,10 +1,10 @@
-# myDockerCheatSheet
+# My Docker Cheat Sheet
 The most used commands I find myself using everyday with docker
 
 ### Initial Setup, Check Version, also doubles as a check if docker is installed correctly
 1. `sudo docker version`
 2. `sudo groupadd docker`
-3. `sudo usermod -aG docker $fuktik`
+3. `sudo usermod -aG docker $linuxusername`
 
 ### Basic download and go set up
 1. `docker container run -d --name nameofcontainer -p 80:80 nameofimagetodownloadoruse`
@@ -32,7 +32,7 @@ in which case i pass the 3 mandatory parameters(called environment variables) wi
 
 `docker container run -d --name nameofcontainer -p 80:80 nginx`
 
-## Stop and Starting Containers
+## Starting and Stopping Containers
 ### Stoping a container (changes status to exited)
 `sudo docker stop containerName`
 ### Removing the Containers
