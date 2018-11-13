@@ -40,6 +40,7 @@ in which case i pass the 3 mandatory parameters(called environment variables) wi
 ## Starting and Stopping Containers
 ### Stoping a container (changes status to exited)
 `sudo docker stop containerName`
+`sudo docker start containerName`
 ### Removing the Containers
 `sudo docket container rm `
 
