@@ -15,9 +15,9 @@ The most used commands I find myself using everyday with docker
 
 # Checking state of Containers and images
 ### check running images (used to create containers)
-`sudo docker images`
+`docker images ls`
 ### check running containers (An instance of an image)
-`sudo docker ps`
+`docker container ls`
 ### Detailed docker info
 `sudo docker info`
 ### Check all running containers  
@@ -46,6 +46,7 @@ in which case i pass the 3 mandatory parameters(called environment variables) wi
 
 # Getting and using downloaded images
 `sudo docker pull mcr.microsoft.com/mssql/server`
+`sudo docker pull mcr.microsoft.com/mssql/server:1.1.1` 
 
 
 ## Getting inside a container with a shell(SSH Like) Inside of Containers
@@ -71,3 +72,15 @@ in which case i pass the 3 mandatory parameters(called environment variables) wi
 One way to connect containers and allow network comunnication with them is that you create a them in the same "virtual network" by creating them in the same network instead of the default "bridge" driver, example:
 `docker container run -d --name my_nginx --network my_app_net nginx`
 1. If you don't specify the virtual network name it will default to the container's name, and then you will have to manually link the containers using the `--link` list commands
+    
+
+
+
+# Volume and Persistent Data
+//Volumes can be mapped at the dockerfile level, or as a command (where mysqlservervolume is the name of the volume:/directory/of/mappedvolume)
+`docker container ......... -v mysqlservervolume:/var/lib/mssql`
+`docker volume ls` // check for mapped volumes in your pc (only mapped locally for linux, mapped to a linux vm in Mac and Windows)
+
+
+### Bind Mounting ( map container to local drive)
+// Allow local development, editing file on my local file system that are running or being used in the container 
